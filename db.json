@@ -1,0 +1,137 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "janesmith@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "3",
+      "name": "Michael Johnson",
+      "email": "michaelj@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "4",
+      "name": "Emily Davis",
+      "email": "emilydavis@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Alumni"
+    },
+    {
+      "id": "5",
+      "name": "William Brown",
+      "email": "williamb@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "6",
+      "name": "Olivia Wilson",
+      "email": "oliviawilson@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "7",
+      "name": "James Anderson",
+      "email": "jamesanderson@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Alumni"
+    },
+    {
+      "id": "8",
+      "name": "Sophia Thomas",
+      "email": "sophiathomas@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "9",
+      "name": "Benjamin Taylor",
+      "email": "benjamint@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "10",
+      "name": "Charlotte Lee",
+      "email": "charlottelee@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "11",
+      "name": "Daniel Harris",
+      "email": "danielh@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Alumni"
+    },
+    {
+      "id": "12",
+      "name": "Mia Clark",
+      "email": "miaclark@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "13",
+      "name": "Logan Lewis",
+      "email": "loganlewis@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "14",
+      "name": "Amelia Robinson",
+      "email": "ameliarobinson@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Alumni"
+    },
+    {
+      "id": "15",
+      "name": "Mason Walker",
+      "email": "masonwalker@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "16",
+      "name": "Ella Young",
+      "email": "ellayoung@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "17",
+      "name": "Alexander King",
+      "email": "alexanderk@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Enrolled"
+    },
+    {
+      "id": "18",
+      "name": "Grace Wright",
+      "email": "gracewright@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Graduated"
+    },
+    {
+      "id": "19",
+      "name": "Lucas Green",
+      "email": "lucasgreen@gmail.com",
+      "imageUrl": "",
+      "enrolmentStatus": "Alumni"
+    }
+  ]
+}

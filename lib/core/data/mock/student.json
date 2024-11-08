@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@example.com",
+      "enrolmentStatus": "enrolled",
+      "imageUrl": ""
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "email": "bob.smith@example.com",
+      "enrolmentStatus": "graduated",
+      "imageUrl": ""
+    },
+    {
+      "id": 3,
+      "name": "Carol White",
+      "email": "carol.white@example.com",
+      "enrolmentStatus": "alumni",
+      "imageUrl": ""
+    },
+    {
+      "id": 4,
+      "name": "David Brown",
+      "email": "david.brown@example.com",
+      "enrolmentStatus": "enrolled",
+      "imageUrl": ""
+    },
+    {
+      "id": 5,
+      "name": "Emma Black",
+      "email": "emma.black@example.com",
+      "enrolmentStatus": "graduated",
+      "imageUrl": ""
+    },
+    {
+      "id": 6,
+      "name": "Frank Green",
+      "email": "frank.green@example.com",
+      "enrolmentStatus": "alumni",
+      "imageUrl": ""
+    },
+    {
+      "id": 7,
+      "name": "Grace Lee",
+      "email": "grace.lee@example.com",
+      "enrolmentStatus": "enrolled",
+      "imageUrl": ""
+    },
+    {
+      "id": 8,
+      "name": "Hannah Scott",
+      "email": "hannah.scott@example.com",
+      "enrolmentStatus": "graduated",
+      "imageUrl": ""
+    },
+    {
+      "id": 9,
+      "name": "Ian Clark",
+      "email": "ian.clark@example.com",
+      "enrolmentStatus": "alumni",
+      "imageUrl": ""
+    },
+    {
+      "id": 10,
+      "name": "Jane Walker",
+      "email": "jane.walker@example.com",
+      "enrolmentStatus": "enrolled",
+      "imageUrl": ""
+    }
+  ]
+  

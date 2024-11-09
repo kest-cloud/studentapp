@@ -176,7 +176,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                           .inputDecorationTheme
                           .focusedBorder
                           ?.borderSide ??
-                      BorderSide()),
+                      const BorderSide()),
               enabledBorder: widget.border ??
                   OutlineInputBorder(
                     borderRadius: BorderRadius.circular(5.r),
@@ -184,7 +184,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                             .inputDecorationTheme
                             .enabledBorder
                             ?.borderSide ??
-                        BorderSide(),
+                        const BorderSide(),
                   ),
 
               border: widget.border ??
@@ -194,7 +194,7 @@ class _CustomTextFieldWidgetState extends State<CustomTextFieldWidget> {
                             .inputDecorationTheme
                             .border
                             ?.borderSide ??
-                        BorderSide(),
+                        const BorderSide(),
                   ),
               prefixIcon: Padding(
                 padding: EdgeInsets.only(

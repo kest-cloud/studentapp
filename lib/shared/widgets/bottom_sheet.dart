@@ -113,7 +113,7 @@ class GeneralBottomSheet extends StatefulWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       Container(
                         height: 80.h,
                         width: 80.h,
@@ -124,7 +124,7 @@ class GeneralBottomSheet extends StatefulWidget {
                           child: Image.asset(kGBL),
                         ),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                       Center(
                         child: Text(failureMessage,
                             textAlign: TextAlign.center,
@@ -133,7 +133,7 @@ class GeneralBottomSheet extends StatefulWidget {
                               fontWeight: FontWeight.normal,
                             )),
                       ),
-                      SizedBox(height: 15),
+                      const SizedBox(height: 15),
                     ],
                   ),
                 ),

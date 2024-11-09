@@ -22,36 +22,21 @@ dependencies:
   flutter:
     sdk: flutter
   app_settings: ^5.1.1
-  appdynamics_agent:
-    git:
-      url: https://github.com/phil10xs/appdynamics_flutter_agent
-  bot_toast: ^4.0.1
-  carousel_slider: ^4.1.1
-  collection: ^1.17.1
-  crypto: ^3.0.3
+ 
+
+ 
   cupertino_icons: ^1.0.2
-  custom_pop_up_menu: ^1.2.4
-  syncfusion_flutter_signaturepad:
   dart_std: null
-  dartz: ^0.10.1
-  device_info: ^2.0.2
+ 
   dio: ^5.3.2
+  
   dropdown_button2: ^1.4.0
-  fancy_shimmer_image: ^2.0.0
-  in_app_review: ^2.0.8
+ 
   flutter_slidable: ^3.1.1
-  file_picker: ^6.0.0
-  firebase_core: ^2.13.1
-  firebase_crashlytics: ^3.3.2
-  firebase_messaging: ^14.6.2
-  flutter_contacts: ^1.1.7+1
+  file_picker: ^6.0.0 
   flutter_dotenv: ^5.1.0
-  flutter_html: any
-  flutter_image_compress: ^2.0.4
-  flutter_multi_formatter: ^2.11.14
   flutter_screenutil: ^5.9.0
   flutter_secure_storage: ^5.0.2
-  flutter_staggered_animations: ^1.1.1
   flutter_svg: any
   geolocator: ^10.0.1
   get_it: ^7.2.0
@@ -63,20 +48,11 @@ dependencies:
   lottie: ^2.6.0
   path_provider: ^2.1.1
   permission_handler: ^10.0.0
-
-  
   pretty_dio_logger: ^1.1.1
   provider: ^6.0.2
   pull_to_refresh: ^2.0.0
-  qr_code_scanner: ^1.0.1
-  qr_flutter: ^4.1.0
-  # screenshot: ^2.1.0
-  scrollable_positioned_list: ^0.3.2
-  share_extend: ^2.0.0
-  share_plus: ^7.0.1
   shared_preferences: ^2.1.1
-  shimmer: ^2.0.0
-  smooth_page_indicator: ^1.0.0+2
+  sqflite: ^2.0.0+4
   the_validator: ^2.0.0
   timer_count_down: ^2.2.0
   tuple: ^2.0.2
@@ -86,16 +62,11 @@ dependencies:
   cron: ^0.5.0
   google_fonts: ^4.0.4
   water_drop_nav_bar: ^2.2.2
- 
-
-
   mocktail: ^1.0.1
-  dotted_border: ^2.0.0
-  android_path_provider: ^0.3.0
-  fluttertoast: ^8.2.4
   equatable: ^2.0.5
   flutter_animate: ^4.5.0
   mockito: ^5.4.4
+  dartz: ^0.10.1
 
 dev_dependencies:
   build_runner: any

@@ -28,10 +28,7 @@ class ApiError {
           errorMessage = 'Connection timeout';
           errorCode = 'CONNECTION_TIMEOUT';
           break;
-        case DioExceptionType.connectionTimeout:
-          errorMessage = 'Check Internet connection';
-          errorCode = 'NETWORK_ERROR';
-          break;
+
         case DioExceptionType.receiveTimeout:
           errorMessage = 'Receive timeout in connection';
           errorCode = 'RECEIVE_TIMEOUT';

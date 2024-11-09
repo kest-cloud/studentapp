@@ -18,7 +18,6 @@ class DashboardNotifier extends ChangeNotifier {
   TextEditingController passwordCtrl = TextEditingController();
   String? profilePhotoPath;
   String enrollmentStatus = 'Enrolled';
-  static const String _studentsKey = 'students';
 
   set setEnrollmentStatus(String value) {
     enrollmentStatus = value;

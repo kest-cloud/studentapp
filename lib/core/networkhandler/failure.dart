@@ -20,7 +20,6 @@ class ExceptionHandler {
   static dynamic errorResponseData(error) {
     if (error is DioException) {
       if (error.response?.data != null) {
-        print('debug ${error.response?.data}');
         return error.response?.data;
       }
     }
@@ -29,7 +28,7 @@ class ExceptionHandler {
 
   static String handleBadResponse(DioException dioError) {
     String errorDescription = "Sorry, Your request failed, Please try again";
-    print("BadResponse ::: ${dioError.response}");
+
     if (dioError.response?.data != null) {
       if (dioError.response?.data is Map) {
         if (dioError.response?.data['userMessage'] != null) {
@@ -67,7 +66,6 @@ class ExceptionHandler {
 
   // ignore: deprecated_member_use
   static String parseDioErrorMessage(DioException dioError) {
-    print("ParseDioErrorMessage :: ");
     String message = "";
     switch (dioError.type) {
       case DioExceptionType.cancel:
@@ -106,7 +104,7 @@ class Failure extends Equatable {
   final String? message;
   final dynamic data;
 
-  Failure({this.message, this.data});
+  const Failure({this.message, this.data});
 
   @override
   List<Object?> get props => [message, data];

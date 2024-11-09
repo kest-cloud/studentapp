@@ -3,7 +3,6 @@ import 'package:studentapp/core/networkhandler/failure.dart';
 import 'package:studentapp/core/utils/dims.dart';
 import 'package:studentapp/features/dashboard/data/datasource/dashboard_remote_database.dart';
 import 'package:studentapp/features/dashboard/data/datasource/localdatasource/local.dart';
-import 'package:studentapp/features/dashboard/data/domain/entity/student_from_api.dart';
 import 'package:studentapp/features/dashboard/data/domain/repository/repo.dart';
 
 class DashBoardRepositoryImpl implements DashBoardRepository {
@@ -23,7 +22,6 @@ class DashBoardRepositoryImpl implements DashBoardRepository {
 
       return Right(response);
     } catch (e) {
-      print(e);
       return Left(
         Failure(
           message: ExceptionHandler.handleError(e).toString(),
@@ -41,7 +39,6 @@ class DashBoardRepositoryImpl implements DashBoardRepository {
 
       return Right(response);
     } catch (e) {
-      print(e);
       return Left(
         Failure(
           message: ExceptionHandler.handleError(e).toString(),
@@ -60,7 +57,6 @@ class DashBoardRepositoryImpl implements DashBoardRepository {
 
       return Right(response);
     } catch (e) {
-      print(e);
       return Left(
         Failure(
           message: ExceptionHandler.handleError(e).toString(),

@@ -45,7 +45,7 @@ class NetworkRequester {
 
       return response.data!;
     } catch (e) {
-      print("Error :::$e");
+      // print("Error :::$e");
       throw ExceptionHandler.handleError(e);
     }
   }

@@ -31,7 +31,7 @@ class StudentappTheme {
       backgroundColor: appColor.backgroundDeep,
     ),
     colorScheme: ColorScheme.fromSwatch().copyWith(
-      background: appColor.backgroundDeep,
+      surface: appColor.backgroundDeep,
       secondary: appColor.backgroundDeep,
     ),
     disabledColor: const Color.fromRGBO(74, 85, 104, 1),
@@ -48,8 +48,8 @@ class StudentappTheme {
     ),
 
     switchTheme: SwitchThemeData(
-      trackColor: MaterialStateColor.resolveWith((states) => appColor.primary),
-      thumbColor: MaterialStateColor.resolveWith((states) => appColor.white),
+      trackColor: WidgetStateColor.resolveWith((states) => appColor.primary),
+      thumbColor: WidgetStateColor.resolveWith((states) => appColor.white),
     ),
 
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -59,8 +59,7 @@ class StudentappTheme {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))),
     ),
     radioTheme: RadioThemeData(
-        fillColor:
-            MaterialStateColor.resolveWith((states) => appColor.primary)),
+        fillColor: WidgetStateColor.resolveWith((states) => appColor.primary)),
     // ignore: prefer_const_constructors
     textTheme: TextTheme(
       headlineLarge: TextStyle(

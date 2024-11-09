@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:studentapp/core/networkhandler/network_requester.dart';
 
 abstract class DashboardRemoteDatasource {

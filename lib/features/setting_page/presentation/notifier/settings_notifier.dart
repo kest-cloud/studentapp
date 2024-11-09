@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:studentapp/features/setting_page/data/datasource/localdatasource/local.dart';
 import 'package:studentapp/features/setting_page/data/domain/repository/repo.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +10,6 @@ class SettingsNotifier extends ChangeNotifier {
   final SettingsRepository _repository;
   TextEditingController usernameCtrl = TextEditingController();
   TextEditingController passwordCtrl = TextEditingController();
-
-  File? _image;
 
   SettingsNotifier(
     this._repository,

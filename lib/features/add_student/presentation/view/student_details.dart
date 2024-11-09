@@ -44,7 +44,7 @@ class _StudentDetailsState extends State<StudentDetails> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Container(
+              SizedBox(
                 width: 361.w,
                 height: 300.h,
                 child: widget.student?.imageUrl != ""
@@ -61,7 +61,7 @@ class _StudentDetailsState extends State<StudentDetails> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               Text(
-                "${widget.student?.name}" ?? " ",
+                "${widget.student?.name}",
                 style: const TextStyle(fontSize: 20, color: Colors.black45),
               ),
               const SizedBox(height: 20),
@@ -70,8 +70,8 @@ class _StudentDetailsState extends State<StudentDetails> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               Text(
-                "${widget.student?.email}" ?? " ",
-                style: TextStyle(fontSize: 20, color: Colors.black45),
+                "${widget.student?.email}",
+                style: const TextStyle(fontSize: 20, color: Colors.black45),
               ),
               const SizedBox(height: 20),
               const Text(
@@ -79,8 +79,8 @@ class _StudentDetailsState extends State<StudentDetails> {
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
               ),
               Text(
-                "${widget.student?.enrolmentStatus}" ?? " ",
-                style: TextStyle(fontSize: 20, color: Colors.black45),
+                "${widget.student?.enrolmentStatus}",
+                style: const TextStyle(fontSize: 20, color: Colors.black45),
               ),
             ],
           ),

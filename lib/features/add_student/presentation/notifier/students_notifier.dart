@@ -99,7 +99,6 @@ class StudentNotifier extends ChangeNotifier {
       "imageUrl": imagePath, // Add the image path here
     };
     Logger(newStudent);
-    print(newStudent);
 
     students.add(newStudent);
     const GeneralBottomSheet().showSuccessBottomSheet(

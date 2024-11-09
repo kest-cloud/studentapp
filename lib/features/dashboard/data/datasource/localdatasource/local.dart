@@ -80,29 +80,8 @@ class DashboardDBLocalDatasourceImpl extends DashboardDBLocalDatasource {
   }
 
   @override
-  Future<void> clearToken() async {
-    await secureStorage.write(key: SessionKeys.accessTokenPart1, value: '');
-    await secureStorage.write(key: SessionKeys.accessTokenPart2, value: '');
-    await secureStorage.write(key: SessionKeys.accessTokenPart3, value: '');
-    await secureStorage.write(key: SessionKeys.refreshToken, value: '');
-    await secureStorage.write(key: SessionKeys.user, value: '');
-    // await secureStorage.write(key: SessionKeys.password, value: '');
-    await sharedPreferences.setInt(SessionKeys.accessTokenExpiresIn, 0);
-  }
-
-  @override
   Future<int> getInt({String? key, int defaultValue = 0}) async {
     var value = sharedPreferences.getInt(key!);
     return value ?? defaultValue;
-  }
-
-  @override
-  Future<bool> hasLoggedin() async {
-    var value = sharedPreferences.getInt(SessionKeys.hasLoggedIn);
-    if (value == null || value == 0) {
-      return false;
-    } else {
-      return true;
-    }
   }
 }

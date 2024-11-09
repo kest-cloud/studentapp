@@ -26,43 +26,36 @@ class MockStudentDBLocalDatasource implements StudentDBLocalDatasource {
 
   @override
   Future<void> clearToken() {
-    // TODO: implement clearToken
     throw UnimplementedError();
   }
 
   @override
   Future<int> getInt({String? key, int defaultValue = 0}) {
-    // TODO: implement getInt
     throw UnimplementedError();
   }
 
   @override
   Future<String?> getToken({String? token}) {
-    // TODO: implement getToken
     throw UnimplementedError();
   }
 
   @override
   Future<bool> hasLoggedin() {
-    // TODO: implement hasLoggedin
     throw UnimplementedError();
   }
 
   @override
   Future<void> saveInt({String? intName, int? value}) {
-    // TODO: implement saveInt
     throw UnimplementedError();
   }
 
   @override
   Future<void> saveSession({String? tokenName, String? token}) {
-    // TODO: implement saveSession
     throw UnimplementedError();
   }
 
   @override
   Future<void> saveString({String? stringName, String? value}) {
-    // TODO: implement saveString
     throw UnimplementedError();
   }
 }

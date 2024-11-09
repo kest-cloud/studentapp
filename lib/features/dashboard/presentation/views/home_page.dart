@@ -49,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Are you sure?'),
+          title: const Text('Are you sure?'),
           content: Text(
               'Do you want to delete this ${student?.name} from Student profile?'),
           actions: [
@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Are you sure?'),
+          title: const Text('Are you sure?'),
           content: Text(
               'Do you want to delete this ${student?.name} from Student profile?'),
           actions: [
@@ -254,7 +254,7 @@ class _HomePageState extends State<HomePage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: 200.w,
                                           child: Text(
                                             student.name ?? "",
@@ -264,7 +264,7 @@ class _HomePageState extends State<HomePage> {
                                                 fontWeight: FontWeight.w600),
                                           ),
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: 200.w,
                                           child: Text(
                                             student.email ?? "",
@@ -429,7 +429,7 @@ class _HomePageState extends State<HomePage> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Container(
+                                              SizedBox(
                                                 width: 200.w,
                                                 child: Text(
                                                   student.name ?? "",
@@ -440,7 +440,7 @@ class _HomePageState extends State<HomePage> {
                                                           FontWeight.w600),
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width: 200.w,
                                                 child: Text(
                                                   student.email ?? "",

@@ -17,7 +17,7 @@ Route onGenerateRoute(RouteSettings settings) {
         settings: const RouteSettings(name: Splash.routeName),
       ),
     NavPage.routeName => MaterialPageRoute(
-        builder: (_) => NavPage(),
+        builder: (_) => const NavPage(),
         settings: const RouteSettings(name: NavPage.routeName),
       ),
     _ => MaterialPageRoute(

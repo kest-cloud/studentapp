@@ -167,7 +167,7 @@ class _AddStudentPageState extends State<AddStudentPage> {
                     ),
                     const SizedBox(height: 20),
                     Center(
-                      child: Container(
+                      child: SizedBox(
                         height: 60.h,
                         width: 200.w,
                         child: Material(

@@ -31,12 +31,12 @@ Adaptability: By isolating different parts of the system, we can switch framewor
 └── main.dart                # Entry point
 
 
-I made use of Privider for my state managemnet.
+I made use of Privider for my state management.
 I decided to animate the container and asset on the dashboard.  and the Navigation Bar.
 
-I also demostrated how I can use normal navigation system and the name route method.
+I also demonstrated using a normal navigation system and the name route method.
 
-You can drag down the screen to refresh list.
+You can drag down the screen to refresh the list.
 
 
 *Feature Overview*
@@ -50,30 +50,30 @@ Details: Users can scroll through this list to view student details, including n
 
 2. Add Student
 Description: Allows users to add a new student by entering their details.
-Details: On this screen, users can input a student’s name, email, enrollment status, and an optional profile photo. The new student will then appear in the local list.
+Details: On this screen, users can input a student’s name, email, enrollment status, and an optional profile photo. The new student will then appear on the local list.
 
 3. Delete Student
 Description: Enables users to delete a student from the list.
-Details: Users can remove a student’s information permanently, and a confirmation prompt will be displayed to prevent accidental deletions.
+Details: Users can permanently remove a student’s information, and a confirmation prompt will be displayed to prevent accidental deletions.
 
 4. Student List from Endpoint
 Description: Displays an up-to-date list of students fetched from a server.
 Details: This tab calls a local server API endpoint to retrieve a dynamic list of students. This feature ensures that users have access to the latest student information, synced with the server.
-Steps on how to start the server locally is below...
+Steps on how to start the server locally are below...
 
 
 //////////////////////////////////////////////////////////
 /////////////////////////////////////////////
 /////////////////////////////////////////////
 
-//Steps to setup local server for mocking the api call.
+//Steps to set up a local server for mocking the API call.
 *For the API mock Calls.*
 
 
 Step 1 (Mac Users)
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-So Json_server is not supported anymore as it has been discontinued. I had to look for another way to simulate api calls. Here is  a step by step proces of how to run the local server to test the mock api calls.
+So Json_server is not supported anymore as it has been discontinued. I had to look for another way to simulate API calls. Here is  a step-by-step process of how to run the local server to test the mock API calls.
 
 Step 2
 brew install node
@@ -85,17 +85,17 @@ Step4
 json-server --watch db.json --port 3000 (this start and watch the server).
 
 the db.json file is in the project directory.
-Once the Server is on, you can go ahead and fetch list of students.
+Once the Server is on, you can go ahead and fetch a list of students.
 
 
-*Limitaitons*
+*Limitatons*
 The process of adding a student to the local storage works as expected, but it has not been fully tested in local server scenarios. 
 
 No Real-Time API Integration
 Limitation: The app is currently using mock data and local storage to simulate API interactions. There is no live data fetched from or pushed to a real backend server at the moment.
 
 
-/////////
+
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 

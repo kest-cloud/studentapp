@@ -1,38 +1,103 @@
-// import 'package:flutter_test/flutter_test.dart';
-// import 'package:mockito/mockito.dart';
-// import 'package:studentapp/features/add_student/data/datasource/localdatasource/local.dart';
-// import 'package:studentapp/features/add_student/presentation/notifier/students_notifier.dart';
+import 'dart:convert';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:studentapp/features/add_student/data/datasource/localdatasource/local.dart';
+import 'package:studentapp/features/add_student/presentation/notifier/students_notifier.dart';
 
-// class MockStudentDBLocalDatasource extends Mock
-//     implements StudentDBLocalDatasource {}
+class MockStudentDBLocalDatasource implements StudentDBLocalDatasource {
+  @override
+  Future<String?> getString({String? key}) async {
+    // Return a mock JSON data string for testing
+    final mockStudentData = [
+      {
+        "id": 1,
+        "name": "Alice",
+        "email": "alice@example.com",
+        "enrolmentStatus": "Enrolled",
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "email": "bob@example.com",
+        "enrolmentStatus": "Enrolled",
+      },
+    ];
+    return jsonEncode(mockStudentData);
+  }
 
-// void main() {
-//   group('StudentNotifier', () {
-//     late StudentNotifier studentNotifier;
-//     late MockStudentDBLocalDatasource mockDatasource;
+  @override
+  Future<void> clearToken() {
+    // TODO: implement clearToken
+    throw UnimplementedError();
+  }
 
-//     setUp(() {
-//       const String _studentsKey = 'students';
-//       mockDatasource = MockStudentDBLocalDatasource();
-//       studentNotifier =
-//           StudentNotifier(studentDBLocalDatasource: mockDatasource);
+  @override
+  Future<int> getInt({String? key, int defaultValue = 0}) {
+    // TODO: implement getInt
+    throw UnimplementedError();
+  }
 
-//       // Use thenAnswer to simulate async behavior of getString
-//       when(mockDatasource.getString(key: _studentsKey)).thenAnswer(
-//         (_) async =>
-//             '[{"id":1,"name":"Alice Johnson","email":"alice.johnson@example.com","enrolmentStatus":"enrolled","imageUrl":"https://www.pinterest.com/pin/81346337013043294/"}, {"id":2,"name":"Bob Smith","email":"bob.smith@example.com","enrolmentStatus":"graduated","imageUrl":"https://www.pinterest.com/pin/81346337013043294/"}]',
-//       );
-//     });
+  @override
+  Future<String?> getToken({String? token}) {
+    // TODO: implement getToken
+    throw UnimplementedError();
+  }
 
-//     test('should return the correct number of students', () async {
-//       // Load the student profiles
-//       await studentNotifier.loadInitialData();
+  @override
+  Future<bool> hasLoggedin() {
+    // TODO: implement hasLoggedin
+    throw UnimplementedError();
+  }
 
-//       // Fetch the student profiles
-//       final students = await studentNotifier.getStudentProfiles();
+  @override
+  Future<void> saveInt({String? intName, int? value}) {
+    // TODO: implement saveInt
+    throw UnimplementedError();
+  }
 
-//       // Verify the number of students
-//       expect(students.length, 2); // We expect 2 students in the mock data
-//     });
-//   });
-// }
+  @override
+  Future<void> saveSession({String? tokenName, String? token}) {
+    // TODO: implement saveSession
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> saveString({String? stringName, String? value}) {
+    // TODO: implement saveString
+    throw UnimplementedError();
+  }
+}
+
+void main() {
+  late MockStudentDBLocalDatasource mockDatasource;
+  late StudentNotifier studentNotifier;
+
+  setUp(() {
+    // Initialize the custom mock and the notifier before each test
+    mockDatasource = MockStudentDBLocalDatasource();
+    studentNotifier = StudentNotifier(studentDBLocalDatasource: mockDatasource);
+  });
+
+  test('getStudentProfiles returns a list of students', () async {
+    // Act: Call getStudentProfiles
+    final result = await studentNotifier.getStudentProfiles();
+
+    // Expected data for assertion
+    final expectedStudentData = [
+      {
+        "id": 1,
+        "name": "Alice",
+        "email": "alice@example.com",
+        "enrolmentStatus": "Enrolled",
+      },
+      {
+        "id": 2,
+        "name": "Bob",
+        "email": "bob@example.com",
+        "enrolmentStatus": "Enrolled",
+      },
+    ];
+
+    // Assert: Verify the result matches expected data
+    expect(result, expectedStudentData);
+  });
+}

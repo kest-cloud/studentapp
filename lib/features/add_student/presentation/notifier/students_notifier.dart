@@ -20,6 +20,8 @@ class StudentNotifier extends ChangeNotifier {
   String? profilePhotoPath;
   String enrollmentStatus = 'Enrolled';
   static const String _studentsKey = 'students';
+  // Add a getter for _studentsKey
+  String get studentsKey => _studentsKey;
 
   set setEnrollmentStatus(String value) {
     enrollmentStatus = value;

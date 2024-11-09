@@ -318,161 +318,197 @@ class _HomePageState extends State<HomePage> {
                     onRefresh: () async {
                       getStudentProfileListFromAPI();
                     },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 8.0, vertical: 20),
-                      child: ListView.separated(
-                        itemCount: dashValue.students?.length ?? 0,
-                        itemBuilder: (context, index) {
-                          var reversedIndex =
-                              dashValue.students!.length - 1 - index;
-                          final student = dashValue.students?[reversedIndex];
-                          return InkWell(
-                            onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) =>
-                              //           StudentDetails(student: studen)),
-                              // );
-                            },
-                            borderRadius: BorderRadius.circular(20.r),
-                            child: Dismissible(
-                              key: Key(student!.id.toString()),
-                              direction: DismissDirection.endToStart,
-                              onDismissed: (direction) {
-                                //if I were to impletment a delete action. would be this.
-                                // _showDeleteConfirmationDialogForAPi(
-                                //     context, student.id, student);
-                              },
-                              child: Container(
-                                width: 300.w,
-                                padding: EdgeInsets.all(18.w),
-                                decoration: BoxDecoration(
-                                  color:
-                                      Colors.white, // Set the background color
-                                  border: Border.all(
-                                    color: Colors.blue, // Border color
-                                    width: 2, // Border width
+                    child: dashValue.students?.length == 0
+                        ? Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0, vertical: 20),
+                            child: ListView.separated(
+                              itemCount: dashValue.students?.length ?? 0,
+                              itemBuilder: (context, index) {
+                                var reversedIndex =
+                                    dashValue.students!.length - 1 - index;
+                                final student =
+                                    dashValue.students?[reversedIndex];
+                                return InkWell(
+                                  onTap: () {
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //       builder: (context) =>
+                                    //           StudentDetails(student: studen)),
+                                    // );
+                                  },
+                                  borderRadius: BorderRadius.circular(20.r),
+                                  child: Dismissible(
+                                    key: Key(student!.id.toString()),
+                                    direction: DismissDirection.endToStart,
+                                    onDismissed: (direction) {
+                                      //if I were to impletment a delete action. would be this.
+                                      // _showDeleteConfirmationDialogForAPi(
+                                      //     context, student.id, student);
+                                    },
+                                    child: Container(
+                                      width: 300.w,
+                                      padding: EdgeInsets.all(18.w),
+                                      decoration: BoxDecoration(
+                                        color: Colors
+                                            .white, // Set the background color
+                                        border: Border.all(
+                                          color: Colors.blue, // Border color
+                                          width: 2, // Border width
+                                        ),
+                                        borderRadius: BorderRadius.circular(
+                                            12), // Rounded corners
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Colors.black.withOpacity(
+                                                0.2), // Shadow color
+                                            spreadRadius:
+                                                2, // Spread the shadow a bit
+                                            blurRadius:
+                                                5, // Make the shadow blurry
+                                            offset: const Offset(0,
+                                                4), // Shadow offset (horizontal, vertical)
+                                          ),
+                                        ],
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          index.isEven
+                                              ? Container(
+                                                  width: 100,
+                                                  height: 100,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: ClipOval(
+                                                    child: student.imageUrl !=
+                                                            ""
+                                                        ? Image.file(
+                                                            fit: BoxFit.cover,
+                                                            File(student
+                                                                .imageUrl!))
+                                                        : Image.asset(
+                                                            k1,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                  ),
+                                                )
+                                                  .animate()
+                                                  .fadeIn(duration: 650.ms)
+                                                  .then(delay: 500.ms)
+                                                  .slideX(begin: -2)
+                                              : Container(
+                                                  width: 100,
+                                                  height: 100,
+                                                  decoration:
+                                                      const BoxDecoration(
+                                                    shape: BoxShape.circle,
+                                                  ),
+                                                  child: ClipOval(
+                                                    child: student.imageUrl !=
+                                                            ""
+                                                        ? Image.file(
+                                                            fit: BoxFit.cover,
+                                                            File(student
+                                                                .imageUrl!))
+                                                        : Image.asset(
+                                                            k1,
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                  ),
+                                                )
+                                                  .animate()
+                                                  .fadeIn(duration: 651.ms)
+                                                  .slideX(begin: 2),
+                                          SizedBox(width: 20.w),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Container(
+                                                width: 200.w,
+                                                child: Text(
+                                                  student.name ?? "",
+                                                  style: TextStyle(
+                                                      color: Colors.black54,
+                                                      fontSize: 18.sp,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 200.w,
+                                                child: Text(
+                                                  student.email ?? "",
+                                                  style: TextStyle(
+                                                      color: Colors.black54,
+                                                      fontSize: 15.sp,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                              ),
+                                              Text(
+                                                student.enrolmentStatus ?? "",
+                                                style: TextStyle(
+                                                    color: student
+                                                                .enrolmentStatus
+                                                                ?.toLowerCase()
+                                                                .compareTo(
+                                                                    "enrolled"
+                                                                        .toLowerCase()) ==
+                                                            0
+                                                        ? Colors.orange
+                                                        : student.enrolmentStatus
+                                                                    ?.toLowerCase()
+                                                                    .compareTo(
+                                                                        "graduated"
+                                                                            .toLowerCase()) ==
+                                                                0
+                                                            ? Colors.green
+                                                            : Colors.teal,
+                                                    fontSize: 15.sp,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
                                   ),
-                                  borderRadius: BorderRadius.circular(
-                                      12), // Rounded corners
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black
-                                          .withOpacity(0.2), // Shadow color
-                                      spreadRadius:
-                                          2, // Spread the shadow a bit
-                                      blurRadius: 5, // Make the shadow blurry
-                                      offset: const Offset(0,
-                                          4), // Shadow offset (horizontal, vertical)
-                                    ),
-                                  ],
-                                ),
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    index.isEven
-                                        ? Container(
-                                            width: 100,
-                                            height: 100,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: ClipOval(
-                                              child: student.imageUrl != ""
-                                                  ? Image.file(
-                                                      fit: BoxFit.cover,
-                                                      File(student.imageUrl!))
-                                                  : Image.asset(
-                                                      k1,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                            ),
-                                          )
-                                            .animate()
-                                            .fadeIn(duration: 650.ms)
-                                            .then(delay: 500.ms)
-                                            .slideX(begin: -2)
-                                        : Container(
-                                            width: 100,
-                                            height: 100,
-                                            decoration: const BoxDecoration(
-                                              shape: BoxShape.circle,
-                                            ),
-                                            child: ClipOval(
-                                              child: student.imageUrl != ""
-                                                  ? Image.file(
-                                                      fit: BoxFit.cover,
-                                                      File(student.imageUrl!))
-                                                  : Image.asset(
-                                                      k1,
-                                                      fit: BoxFit.cover,
-                                                    ),
-                                            ),
-                                          )
-                                            .animate()
-                                            .fadeIn(duration: 651.ms)
-                                            .slideX(begin: 2),
-                                    SizedBox(width: 20.w),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 200.w,
-                                          child: Text(
-                                            student.name ?? "",
-                                            style: TextStyle(
-                                                color: Colors.black54,
-                                                fontSize: 18.sp,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                        Container(
-                                          width: 200.w,
-                                          child: Text(
-                                            student.email ?? "",
-                                            style: TextStyle(
-                                                color: Colors.black54,
-                                                fontSize: 15.sp,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
-                                        Text(
-                                          student.enrolmentStatus ?? "",
-                                          style: TextStyle(
-                                              color: student.enrolmentStatus
-                                                          ?.toLowerCase()
-                                                          .compareTo("enrolled"
-                                                              .toLowerCase()) ==
-                                                      0
-                                                  ? Colors.orange
-                                                  : student.enrolmentStatus
-                                                              ?.toLowerCase()
-                                                              .compareTo("graduated"
-                                                                  .toLowerCase()) ==
-                                                          0
-                                                      ? Colors.green
-                                                      : Colors.teal,
-                                              fontSize: 15.sp,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                                );
+                              },
+                              separatorBuilder:
+                                  (BuildContext context, int index) {
+                                return SizedBox(
+                                  height: 20.h,
+                                );
+                              },
                             ),
-                          );
-                        },
-                        separatorBuilder: (BuildContext context, int index) {
-                          return SizedBox(
-                            height: 20.h,
-                          );
-                        },
-                      ),
-                    ),
+                          )
+                        : const Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Center(
+                                child: Column(
+                                  children: [
+                                    Icon(
+                                      Icons.people,
+                                      size: 40,
+                                      color: Colors.blue,
+                                    ),
+                                    Text(
+                                        "You currently do not have any student"),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
                   ),
                   // Second tab content
                 ],

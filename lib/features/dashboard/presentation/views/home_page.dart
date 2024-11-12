@@ -120,6 +120,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Consumer<DashboardNotifier>(builder: (context, dashValue, _) {
         return Consumer<StudentNotifier>(builder: (context, value, _) {
+          print(dashValue.students);
           return DefaultTabController(
             length: 2, // Number of tabs
             child: Scaffold(
@@ -318,7 +319,7 @@ class _HomePageState extends State<HomePage> {
                     onRefresh: () async {
                       getStudentProfileListFromAPI();
                     },
-                    child: dashValue.students?.length == 0
+                    child: dashValue.students != null
                         ? Padding(
                             padding: const EdgeInsets.symmetric(
                                 horizontal: 8.0, vertical: 20),
@@ -490,20 +491,34 @@ class _HomePageState extends State<HomePage> {
                               },
                             ),
                           )
-                        : const Column(
+                        : Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Center(
                                 child: Column(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.people,
                                       size: 40,
                                       color: Colors.blue,
                                     ),
-                                    Text(
+                                    const Text(
                                         "You currently do not have any student"),
+                                    const Text(
+                                        "Start up the server(details in readme) and click   "),
+                                    const SizedBox(height: 10),
+                                    InkWell(
+                                      onTap: () {
+                                        getStudentProfileListFromAPI();
+                                      },
+                                      child: const Text(
+                                        "refresh",
+                                        style: TextStyle(
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               )

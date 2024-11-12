@@ -1,6 +1,5 @@
 import 'package:studentapp/features/add_student/presentation/notifier/students_notifier.dart';
 import 'package:studentapp/features/dashboard/presentation/notifier/dashboard_notifier.dart';
-import 'package:studentapp/features/setting_page/presentation/notifier/settings_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +35,6 @@ class _MyAppState extends State<MyApp> {
       builder: (_, child) {
         return MultiProvider(
           providers: [
-            ChangeNotifierProvider.value(value: getIt<SettingsNotifier>()),
             ChangeNotifierProvider.value(value: getIt<StudentNotifier>()),
             ChangeNotifierProvider.value(value: getIt<DashboardNotifier>()),
           ],

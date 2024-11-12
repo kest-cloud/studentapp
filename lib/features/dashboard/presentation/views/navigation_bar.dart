@@ -1,8 +1,9 @@
 import 'package:studentapp/features/add_student/presentation/view/add_student_page.dart.dart';
 import 'package:studentapp/features/dashboard/presentation/views/home_page.dart';
-import 'package:studentapp/features/setting_page/presentation/view/settings_page.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:studentapp/features/setting_page/presentation/view/settings_page.dart';
 import 'package:water_drop_nav_bar/water_drop_nav_bar.dart';
 
 class NavPage extends StatefulWidget {
@@ -37,9 +38,9 @@ class _NavPageState extends State<NavPage> {
         body: PageView(
           physics: const NeverScrollableScrollPhysics(),
           controller: pageController,
-          children: const <Widget>[
-            HomePage(),
-            AddStudentPage(),
+          children: <Widget>[
+            const HomePage(),
+            const AddStudentPage(),
             SettingsPage(),
           ],
         ),

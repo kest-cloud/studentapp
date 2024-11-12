@@ -1,5 +1,6 @@
 import 'dart:async';
-
+import 'package:lottie/lottie.dart';
+import 'package:studentapp/core/assets/assets.dart';
 import 'package:studentapp/features/dashboard/presentation/views/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,7 +21,7 @@ class _SplashState extends State<Splash> {
 
     // Add a delay of 2 seconds before navigating to the next screen
     Timer(
-      const Duration(seconds: 2),
+      const Duration(seconds: 4),
       () => Navigator.pushNamed(context, NavPage.routeName),
     );
   }
@@ -28,15 +29,13 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // Your splash screen content
-      backgroundColor: AppColors.backgroundColor,
-      body: Center(
-        child: Container(
-          height: 100.h,
-          width: 100.w,
-          color: Colors.black,
-        ),
-      ),
-    );
+        // Your splash screen content
+        backgroundColor: AppColors.backgroundColor,
+        body: Center(
+          child: SizedBox(
+              height: 150.h,
+              width: 150.w,
+              child: Lottie.asset('$animDir/splash.json')),
+        ));
   }
 }

@@ -7,6 +7,8 @@ import 'package:studentapp/features/dashboard/data/datasource/dashboard_remote_d
 import 'package:studentapp/features/dashboard/data/datasource/localdatasource/local.dart';
 import 'package:studentapp/features/dashboard/presentation/notifier/dashboard_notifier.dart';
 import 'package:studentapp/features/setting_page/data/datasource/localdatasource/local.dart';
+import 'package:studentapp/features/setting_page/data/datasource/repository/sett_repo.dart';
+import 'package:studentapp/features/setting_page/data/domain/repository/repo.dart';
 import 'package:studentapp/features/setting_page/presentation/notifier/settings_notifier.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -85,9 +87,9 @@ Future<void> setUp() async {
             networkRequester: getIt(),
           ));
 
-  getIt.registerLazySingleton<SettingsDBLocalDatasource>(() =>
-      SettingsDBLocalDatasourceImpl(
-          secureStorage: getIt(), sharedPreferences: getIt()));
+  // getIt.registerLazySingleton<SettingsDBLocalDatasource>(() =>
+  //     SettingsDBLocalDatasourceImpl(
+  //         secureStorage: getIt(), sharedPreferences: getIt()));
 
   getIt.registerLazySingleton<StudentDBLocalDatasource>(() =>
       StudentDBLocalDatasourceImpl(
@@ -110,6 +112,12 @@ Future<void> setUp() async {
 
   getIt.registerLazySingleton<StudentRepository>(
     () => StudentRepositoryImpl(
+      remoteDatasource: getIt(),
+      dbLocalDatasource: getIt(),
+    ),
+  );
+  getIt.registerLazySingleton<SettingsRepository>(
+    () => SettingsRepositoryImpl(
       remoteDatasource: getIt(),
       dbLocalDatasource: getIt(),
     ),

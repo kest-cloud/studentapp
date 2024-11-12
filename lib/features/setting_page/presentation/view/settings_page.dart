@@ -1,129 +1,131 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:studentapp/core/di-manual/di_manual.dart';
+import 'package:studentapp/features/setting_page/data/domain/entity/user_settings.dart';
+import 'package:studentapp/features/setting_page/presentation/notifier/settings_notifier.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({Key? key}) : super(key: key);
-
   @override
   _SettingsPageState createState() => _SettingsPageState();
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  bool isDarkMode = false;
-  String selectedLanguage = 'English';
+  // Default settings values
+  String theme = 'Light';
+  bool notificationsEnabled = true;
+  String language = 'English';
+  String fontSize = 'Medium';
+
+  @override
+  void initState() {
+    super.initState();
+    _loadUserSettings();
+  }
+
+  // Load user settings from the database
+  void _loadUserSettings() async {
+    final caller = getIt<SettingsNotifier>();
+    final savedSettings = await caller.getSettings();
+    if (savedSettings != null) {
+      setState(() {
+        theme = savedSettings.theme;
+        notificationsEnabled = savedSettings.notificationsEnabled;
+        language = savedSettings.language;
+        fontSize = savedSettings.fontSize;
+      });
+    }
+  }
+
+  // Save user settings to the database
+  void _saveUserSettings() async {
+    final caller = getIt<SettingsNotifier>();
+    final settings = UserSettings(
+      theme: theme,
+      notificationsEnabled: notificationsEnabled,
+      language: language,
+      fontSize: fontSize,
+    );
+    await caller.saveSettings(settings);
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        title: const Text('Settings'),
-        backgroundColor: Colors.white,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView(
-          children: [
-            // Profile Settings
-            // ListTile(
-            //   leading: Icon(Icons.person),
-            //   title: Text('Edit Profile'),
-            //   onTap: () {
-            //     // Navigate to profile edit page (if you have one)
-            //   },
-            // ),
-            // ListTile(
-            //   leading: Icon(Icons.camera_alt),
-            //   title: Text('Change Profile Picture'),
-            //   onTap: () {
-            //     // Function to change profile picture
-            //   },
-            // ),
-
-            // Theme Settings
-            SwitchListTile(
-              title: Text('Dark Mode'),
-              value: isDarkMode,
-              onChanged: (bool value) {
+      appBar: AppBar(title: const Text('Settings')),
+      body: ListView(
+        padding: const EdgeInsets.all(16),
+        children: [
+          // Theme selection
+          ListTile(
+            title: const Text('Theme'),
+            trailing: DropdownButton<String>(
+              value: theme,
+              items: ['Light', 'Dark']
+                  .map((option) => DropdownMenuItem(
+                        value: option,
+                        child: Text(option),
+                      ))
+                  .toList(),
+              onChanged: (newValue) {
                 setState(() {
-                  isDarkMode = value;
+                  theme = newValue!;
+                  _saveUserSettings();
                 });
               },
             ),
+          ),
 
-            // Language Settings
-            ListTile(
-              leading: Icon(Icons.language),
-              title: Text('Language'),
-              subtitle: Text(selectedLanguage),
-              onTap: () {
-                // Show language selection options
-                showDialog(
-                  context: context,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('Select Language'),
-                      content: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            ListTile(
-                              title: Text('English'),
-                              onTap: () {
-                                setState(() {
-                                  selectedLanguage = 'English';
-                                });
-                                Navigator.pop(context);
-                              },
-                            ),
-                            ListTile(
-                              title: Text('Spanish'),
-                              onTap: () {
-                                setState(() {
-                                  selectedLanguage = 'Spanish';
-                                });
-                                Navigator.pop(context);
-                              },
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
+          // Notifications toggle
+          SwitchListTile(
+            title: const Text('Enable Notifications'),
+            value: notificationsEnabled,
+            onChanged: (value) {
+              setState(() {
+                notificationsEnabled = value;
+                _saveUserSettings();
+              });
+            },
+          ),
+
+          // Language selection
+          ListTile(
+            title: const Text('Language'),
+            trailing: DropdownButton<String>(
+              value: language,
+              items: ['English', 'Spanish', 'French']
+                  .map((option) => DropdownMenuItem(
+                        value: option,
+                        child: Text(option),
+                      ))
+                  .toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  language = newValue!;
+                  _saveUserSettings();
+                });
               },
             ),
+          ),
 
-            // Notification Settings
-            SwitchListTile(
-              title: Text('Enable Notifications'),
-              value: true,
-              onChanged: (bool value) {
-                setState(() {});
+          // Font Size selection
+          ListTile(
+            title: Text('Font Size'),
+            trailing: DropdownButton<String>(
+              value: fontSize,
+              items: ['Small', 'Medium', 'Large']
+                  .map((option) => DropdownMenuItem(
+                        value: option,
+                        child: Text(option),
+                      ))
+                  .toList(),
+              onChanged: (newValue) {
+                setState(() {
+                  fontSize = newValue!;
+                  _saveUserSettings();
+                });
               },
             ),
-
-            // App Info
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.info),
-              title: Text('App Version'),
-              subtitle: Text('1.0.0'),
-              onTap: () {},
-            ),
-
-            // Logout
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Logout'),
-              onTap: () {
-                // Handle logout logic here
-              },
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
